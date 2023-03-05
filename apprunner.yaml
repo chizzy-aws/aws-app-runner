@@ -13,17 +13,13 @@ build:
       value: "example"
 run:
   runtime-version: 3.8.16
-  command: streamlit run streamlit_app.py
+  command: python main.py
   network: 
     port: 80
-    env: STREAMLIT_SERVER_PORT  
+    env: APP_PORT  
   env:
-    - name: STREAMLIT_SERVER_MAX_UPLOAD_SIZE
-      value: 100
-    - name: STREAMLIT_THEME_BASE
-      value: "dark"
-    - name: STREAMLIT_SERVER_RUN_ON_SAVE
-      value: "false"
+    - name: MY_VAR_EXAMPLE
+      value: "example"
   # secrets:
   #   - name: my-secret
   #     value-from: "arn:aws:secretsmanager:us-east-1:123456789012:secret:testingstackAppRunnerConstr-kJFXde2ULKbT-S7t8xR:username::"

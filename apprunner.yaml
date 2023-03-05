@@ -1,0 +1,33 @@
+version: 1.0
+runtime: python3 
+build:
+  commands:
+    pre-build:
+      - echo "this is a pre-build step"
+    build:        
+      - pip3 install -r requirements.txt
+    post-build:
+      - python manage.py test
+  env:
+    - name: MY_VAR_EXAMPLE
+      value: "example"
+run:
+  runtime-version: 3.7.7
+  command: streamlit run streamlit_app.py
+  network: 
+    port: 80
+    env: STREAMLIT_SERVER_PORT  
+  env:
+    - name: STREAMLIT_SERVER_MAX_UPLOAD_SIZE
+      value: 100
+    - name: STREAMLIT_THEME_BASE
+      value: "dark"
+    - name: STREAMLIT_SERVER_RUN_ON_SAVE
+      value: "false"
+  # secrets:
+  #   - name: my-secret
+  #     value-from: "arn:aws:secretsmanager:us-east-1:123456789012:secret:testingstackAppRunnerConstr-kJFXde2ULKbT-S7t8xR:username::"
+  #   - name: my-parameter
+  #     value-from: "arn:aws:ssm:us-east-1:123456789012:parameter/parameter-name"
+  #   - name: my-parameter-only-name
+  #     value-from: "parameter-name"

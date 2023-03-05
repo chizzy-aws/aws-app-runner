@@ -5,9 +5,9 @@ build:
     pre-build:
       - echo "this is a pre-build step"
     build:        
-      - pip3 install -r requirements.txt
+      - pip install -r requirements.txt
     post-build:
-      - python manage.py test
+      - echo "this is a the post-build step"
   env:
     - name: MY_VAR_EXAMPLE
       value: "example"

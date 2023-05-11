@@ -3,9 +3,10 @@ import os
 import tornado.web
 
 app_port = os.environ.get("APP_PORT", 8888)
+environmental_var= os.environ
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write("Hello, world")
+        self.write(str(environmental_var))
 
 def make_app():
     return tornado.web.Application([

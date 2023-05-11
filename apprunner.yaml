@@ -20,9 +20,9 @@ run:
   env:
     - name: MY_VAR_EXAMPLE
       value: "example"
-  # secrets:
-  #   - name: my-secret
-  #     value-from: "arn:aws:secretsmanager:us-east-1:123456789012:secret:testingstackAppRunnerConstr-kJFXde2ULKbT-S7t8xR:username::"
+  secrets:
+    - name: my-secret
+      value-from: "arn:aws:secretsmanager:us-west-2:477391225152:secret:TEST-Gqa37x::"
   #   - name: my-parameter
   #     value-from: "arn:aws:ssm:us-east-1:123456789012:parameter/parameter-name"
   #   - name: my-parameter-only-name
